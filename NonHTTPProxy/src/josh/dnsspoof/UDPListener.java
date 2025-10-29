@@ -152,8 +152,8 @@ public class UDPListener implements Runnable{
 		try 
         {
 			Callbacks.printOutput("Using port: " + this.port);
-            datagramSocket = new DatagramSocket(this.port);
-           
+			InetAddress localAddress = InetAddress.getByName(this.ADDRESS[0] + "." + this.ADDRESS[1] + "." +this.ADDRESS[2] + "." +this.ADDRESS[3]);
+			datagramSocket = new DatagramSocket(this.port, localAddress);
             
         } catch (SocketException e) { 
         	Callbacks.printError(e.getMessage());
